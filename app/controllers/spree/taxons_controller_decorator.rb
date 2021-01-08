@@ -3,12 +3,8 @@ module Spree::TaxonsControllerDecorator
   include Spree::PageTracker
 
   def self.prepend(base)
-    def self.track_actions(actions = [])
-      base.after_action :track_event, only: actions
-    end
+    base.after_action :track_event, only: [:show]
   end
-
-  track_actions [:show]
 
 end
 
