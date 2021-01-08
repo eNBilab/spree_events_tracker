@@ -25,4 +25,4 @@ module Spree::CheckoutControllerDecorator
 
 end
 
-::Spree::CheckoutController.prepend(Spree::CheckoutControllerDecorator)
+::Spree::CheckoutController.prepend(Spree::CheckoutControllerDecorator) if ::Spree::CheckoutController.included_modules.exclude?(Spree::CheckoutControllerDecorator)
