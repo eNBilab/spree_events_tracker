@@ -2,7 +2,7 @@ module Spree::CheckoutControllerDecorator
 
   include Spree::CheckoutEventTracker
 
-  def self.prepend(base)
+  def self.prepended(base)
     base.after_action :track_order_state_change, only: :edit
     base.after_action :track_order_completion, only: :update, if: :confirm?
   end
@@ -25,4 +25,4 @@ module Spree::CheckoutControllerDecorator
 
 end
 
-::Spree::CheckoutController.prepend(Spree::CheckoutControllerDecorator) if ::Spree::CheckoutController.included_modules.exclude?(Spree::CheckoutControllerDecorator)
+::Spree::CheckoutController.prepend(Spree::CheckoutControllerDecorator)

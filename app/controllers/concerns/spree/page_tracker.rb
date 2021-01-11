@@ -3,6 +3,7 @@ module Spree
     extend ActiveSupport::Concern
 
     def track_event
+
       if event_trackable?
         Spree::Page::Event::Tracker.new(
           session_id: session.id,

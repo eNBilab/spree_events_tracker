@@ -1,5 +1,5 @@
 module Spree
-  module CheckoutEventTracker
+  module  CheckoutEventTracker
     extend ActiveSupport::Concern
 
     def track_activity(attributes)

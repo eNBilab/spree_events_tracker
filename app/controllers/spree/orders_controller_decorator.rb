@@ -2,7 +2,7 @@ module Spree::OrdersControllerDecorator
 
   include Spree::CheckoutEventTracker
 
-  def self.prepend(base)
+  def self.prepended(base)
     base.after_action :track_return_to_cart, only: :edit, if: :current_order
     base.after_action :track_empty_cart_activity, only: :empty
   end
@@ -34,4 +34,4 @@ module Spree::OrdersControllerDecorator
 
 end
 
-::Spree::OrdersController.prepend(Spree::OrdersControllerDecorator) if ::Spree::OrdersController.included_modules.exclude?(Spree::OrdersControllerDecorator)
+::Spree::OrdersController.prepend(Spree::OrdersControllerDecorator)
